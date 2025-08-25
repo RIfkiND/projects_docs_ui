@@ -3,18 +3,15 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import React, { AnchorHTMLAttributes, ReactNode } from "react";
 
-const transition = {
-  duration: 0.4,
-  easing: "ease-in-out",
-};
 // const transition = {
-//   type: "spring",
-//   mass: 0.5,
-//   damping: 11.5,
-//   stiffness: 100,
-//   restDelta: 0.001,
-//   restSpeed: 0.001,
+//   duration: 0.4,
+//   easing: "ease-in-out",
 // };
+const transition = {
+  duration: 0.3,
+  easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+};
+
 
 export const MenuItem = ({
   setActive,
@@ -32,38 +29,41 @@ export const MenuItem = ({
   return (
     <div
       onMouseEnter={() => setActive(value)}
-      className="relative h-full flex items-center justify-center"
+      className="relative h-full flex items-center"
     >
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer hover:opacity-[0.9] text-white flex items-center justify-center h-full"
+        className="cursor-pointer hover:opacity-[0.9] text-white"
       >
         {item}
       </motion.p>
-      {active !== null && (
+      {active === value && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
+          initial={{ opacity: 0, scale: 0.98, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.98, y: 16 }}
           transition={transition}
+          className="absolute top-full left-1/2 -mt-3 w-35 flex justify-center -translate-x-1/2 z-50"
         >
-          {active === value && (
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 z-50">
-              <motion.div
-                transition={transition}
-                layoutId="active"
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden w-full"
-              >
-                <motion.div layout className="h-full p-4 w-full">
-                  {children}
-                </motion.div>
-              </motion.div>
-            </div>
-          )}
+          <motion.div
+            transition={transition}
+            layoutId="active"
+            className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden w-full shadow-lg"
+          >
+            <motion.div
+              layout
+              className="h-full p-4 flex flex-col items-center justify-center gap-y-4"
+            >
+              {children}
+            </motion.div>
+          </motion.div>
         </motion.div>
       )}
     </div>
   );
 };
+
+
 export const Menu = ({
   setActive,
   children,

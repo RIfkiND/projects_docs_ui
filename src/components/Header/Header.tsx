@@ -3,10 +3,16 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { HoveredLink, Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
-import { FaChevronDown, FaDiscord, FaGithub, FaSearch } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { FaChevronDown, FaDiscord, FaGithub } from "react-icons/fa";
 import { MdTranslate } from "react-icons/md";
-import { GoArrowUpRight } from "react-icons/go";
-
+// import { GoArrowUpRight } from "react-icons/go";
+import {
+  resourcesLinks,
+  versionsLinks,
+  languageOptions,
+} from "@/components/Data/DataHeader";
+import { IoClose } from "react-icons/io5";
 export default function Header({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -52,36 +58,36 @@ export default function Header({ className }: { className?: string }) {
           className="flex items-center justify-between h-16"
           style={{ minHeight: "4rem" }}
         >
+          {/* Logo OUTSIDE header-body */}
+          <Link
+            href="/"
+            className="text-xl font-bold text-gray-200 h-full flex items-center mr-6"
+          >
+            Docs
+          </Link>
           {/* Header Body */}
           <div
             className="flex items-center justify-between w-full h-full"
             id="header-body"
           >
-            {/* Left: Logo / Icon and Search Button */}
-            <div className="flex items-center gap-5 h-full">
-              <Link
-                href="/"
-                className="text-xl font-bold text-gray-200 h-full flex items-center"
-              >
-                Your Docs
-              </Link>
+            {/* Left: Search Button */}
+            <div className="flex items-center gap-5">
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center gap-3 px-3 py-1 rounded bg-white/10 hover:bg-white/20 text-gray-200 border border-white/20 text-sm font-medium transition focus:outline-none h-full"
-                title="Search (Ctrl+K)"
+                className="flex items-center gap-2 px-4 py-1 rounded-lg bg-[#161618] text-gray-200 text-sm font-normal transition focus:outline-none min-w-[120px]"
+                title="Search (Ctrl K)"
                 type="button"
-                style={{ minHeight: "2.5rem" }}
+                style={{ height: "2.5rem" }}
               >
-                <FaSearch />
-                <span className="hidden sm:inline text-xs">Search</span>
-                <span className="ml-2 px-2 py-0.5 rounded bg-white/20 text-[11px] font-mono border border-white/20">
-                  Ctrl+K
+                <CiSearch className="text-base" />
+                <span className="hidden sm:inline font-light">Search</span>
+                <span className="ml-2 px-2 py-1 rounded bg-[#161618] text-[12px] font-mono border border-white/20 font-normal">
+                  Ctrl K
                 </span>
               </button>
             </div>
-
             {/* Right: Navigation + Socials */}
-            <div className="flex items-center h-full">
+            <div className="flex items-center h-full ">
               <Menu setActive={setActive}>
                 {/* Guide */}
                 <Link
@@ -111,11 +117,12 @@ export default function Header({ className }: { className?: string }) {
                     </span>
                   }
                 >
-                  <div className="flex flex-col space-y-3 text-xs">
-                    <HoveredLink href="/web-dev">Web</HoveredLink>
-                    <HoveredLink href="/Blog">Blog</HoveredLink>
-                    <HoveredLink href="/other">other</HoveredLink>
-                    <HoveredLink href="/other">other</HoveredLink>
+                  <div className="flex flex-col space-y-4 text-xs font-bold">
+                    {resourcesLinks.map((link) => (
+                      <HoveredLink key={link.href} href={link.href}>
+                        {link.label}
+                      </HoveredLink>
+                    ))}
                   </div>
                 </MenuItem>
                 {/* Version Menu */}
@@ -125,20 +132,19 @@ export default function Header({ className }: { className?: string }) {
                   value="version"
                   item={
                     <span className="flex items-center px-2 text-gray-200 text-sm h-full">
-                      <span className="hidden md:inline">Version</span>
+                      <span className="hidden md:inline">Versions</span>
                       <span className="flex items-center gap-1">
                         <FaChevronDown className="ml-1 text-[11px] align-middle" />
                       </span>
                     </span>
                   }
                 >
-                  <div className="flex flex-col space-y-2 text-xs">
-                    <HoveredLink href="#">
-                      <span className="flex items-center gap-1">
-                        Version 1.0.0
-                        <GoArrowUpRight className="text-xs align-middle" />
-                      </span>
-                    </HoveredLink>
+                  <div className="flex flex-col space-y-4 text-xs font-bold">
+                    {versionsLinks.map((link, i) => (
+                      <HoveredLink key={i} href={link.href}>
+                        {link.label}
+                      </HoveredLink>
+                    ))}
                   </div>
                 </MenuItem>
                 {/* Translate Menu */}
@@ -147,25 +153,23 @@ export default function Header({ className }: { className?: string }) {
                   active={active}
                   value="translate"
                   item={
-                    <span className="flex items-center gap-1 border-l border-r border-white/20 px-2 text-gray-200 text-sm h-full">
-                      <MdTranslate className="text-[15px]" />
-                      <FaChevronDown className="inline-block text-[9px] align-middle" />
+                    <span
+                      className="flex items-center border-l border-r border-white/20 px-6 mx-2"
+                      style={{ height: "1.5rem" }}
+                    >
+                      <MdTranslate className="text-[15px] mr-2" />
+                      <FaChevronDown className="inline-block text-[8px] align-middle" />
                     </span>
                   }
                 >
-                  <div className="flex flex-col space-y-2 text-xs">
-                    <button className="text-left hover:bg-gray-100 px-2 py-1 rounded">
-                      English
-                    </button>
-                    <button className="text-left hover:bg-gray-100 px-2 py-1 rounded">
-                      Español
-                    </button>
-                    <button className="text-left hover:bg-gray-100 px-2 py-1 rounded">
-                      Français
-                    </button>
+                  <div className="flex flex-col space-y-4 text-xs font-bold">
+                    {languageOptions.map((lang) => (
+                      <button key={lang.code} className="text-left rounded">
+                        {lang.label}
+                      </button>
+                    ))}
                   </div>
                 </MenuItem>
-
                 {/* Socials */}
                 <a
                   href="https://discord.com/invite/your-discord"
@@ -176,7 +180,6 @@ export default function Header({ className }: { className?: string }) {
                 >
                   <FaDiscord />
                 </a>
-
                 <a
                   href="https://github.com/your-repo"
                   target="_blank"
@@ -191,28 +194,30 @@ export default function Header({ className }: { className?: string }) {
           </div>
         </div>
       </div>
-
       {/* Search Modal */}
       {searchOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
-            <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-black"
-              onClick={() => setSearchOpen(false)}
-              aria-label="Close search"
-            >
-              ×
-            </button>
-            <div className="flex items-center gap-2 border-b pb-2 mb-2">
-              <FaSearch className="text-gray-400" />
-              <input
-                ref={searchInputRef}
-                type="text"
-                placeholder="Search..."
-                className="flex-1 outline-none text-base bg-transparent"
-              />
+        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 pt-16">
+          <div className="bg-[#23232b]  rounded-sm shadow-2xl p-0 w-full max-w-3xl relative">
+            <div className="flex flex-col">
+              <div className="flex items-center px-3 pt-2 pb-2">
+                <CiSearch className="text-indigo-300 text-3xl mr-2" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Search docs"
+                  className="flex-1 bg-transparent outline-none text-xl text-white font-light placeholder-gray-400 px-2 py-1"
+                  style={{ minWidth: 0 }}
+                />
+                <button
+                  className="ml-4 text-gray-400 hover:text-white text-2xl"
+                  style={{ marginLeft: "auto" }}
+                  onClick={() => setSearchOpen(false)}
+                  aria-label="Close search"
+                >
+                  <IoClose />
+                </button>
+              </div>
             </div>
-            <div className="text-gray-400 text-xs">Press Ctrl+K to close</div>
           </div>
         </div>
       )}
