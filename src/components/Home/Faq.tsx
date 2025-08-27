@@ -37,7 +37,7 @@ export default function Faq({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="py-12 bg-white dark:bg-zinc-950 transition-colors duration-300"
+      className="py-12 bg-white dark:bg-black transition-colors duration-300"
     >
       <div className="max-w-2xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-8 text-center text-black dark:text-white">
