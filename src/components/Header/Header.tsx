@@ -49,7 +49,7 @@ export default function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 border-b border-black/10 dark:border-white/10",
+        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 border-b bg-white dark:bg-black border-black/10 dark:border-white/10",
         scrolled
           ? "backdrop-blur-md bg-white/70 dark:bg-black/30"
           : "bg-white dark:bg-transparent",

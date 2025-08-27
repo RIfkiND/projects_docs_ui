@@ -120,3 +120,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.react-syntax-highlighter,
+.react-syntax-highlighter pre,
+.react-syntax-highlighter code {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}

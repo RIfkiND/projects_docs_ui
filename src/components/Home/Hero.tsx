@@ -4,26 +4,26 @@ export default function Hero({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="h-[40rem] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased mt-16"
+      className="h-[40rem] w-full rounded-md bg-neutral-50 dark:bg-neutral-950 relative flex flex-col items-center justify-center antialiased transition-colors"
     >
       <div className="max-w-2xl mx-auto p-4">
-        <h1 className="relative z-10 text-3xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
+        <h1 className="relative z-10 text-3xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 to-neutral-400 dark:from-neutral-200 dark:to-neutral-600 text-center font-sans font-bold transition-colors">
           Docs That Get Out of Your Way.
         </h1>
-        <p className="text-neutral-400 max-w-lg mx-auto my-4 text-lg text-center relative z-10 font-light">
+        <p className="text-neutral-600 dark:text-neutral-400 max-w-lg mx-auto my-4 text-lg text-center relative z-10 font-light transition-colors">
           Learn [Project Name] with clear guides, API references, and real-world
           examples — written for developers, by developers.
         </p>
         <div className="flex justify-center gap-4 mt-8 relative z-10">
           <a
             href="#"
-            className="px-6 py-2 rounded-lg bg-teal-500 text-white font-semibold shadow hover:bg-teal-600 transition"
+            className="px-6 py-2 rounded-lg bg-teal-600 dark:bg-teal-500 text-white font-semibold shadow hover:bg-teal-700 dark:hover:bg-teal-600 transition"
           >
             Get Started
           </a>
           <a
             href="/docs"
-            className="px-6 py-2 rounded-lg border border-neutral-700 text-neutral-200 font-semibold hover:bg-neutral-900 transition"
+            className="px-6 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-semibold hover:bg-neutral-200 dark:hover:bg-neutral-900 transition"
           >
             View Docs
           </a>
