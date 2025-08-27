@@ -14,7 +14,7 @@ export default function Logo({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="bg-white dark:bg-black/80 "
+      className="bg-white dark:bg-black "
       style={{ height: "200px", position: "relative", overflow: "hidden" }}
     >
       <div className="max-w-6xl mx-auto px-4 h-full flex items-center rounded-lg">

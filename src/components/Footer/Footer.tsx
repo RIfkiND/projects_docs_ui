@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-white dark:bg-zinc-900 py-6 ">
+    <footer className="w-full border-t bg-white dark:bg-black/90 py-6 ">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-sm text-gray-600 dark:text-gray-300">
           © {new Date().getFullYear()} YourProjectName. MIT License.

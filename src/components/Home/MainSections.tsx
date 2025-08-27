@@ -5,7 +5,7 @@ export default function MainSections({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="py-12 bg-gray-50 dark:bg-black/80 transition-colors duration-300"
+      className="py-12 bg-gray-50 dark:bg-black transition-colors duration-300"
     >
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-8 text-center text-black dark:text-white">

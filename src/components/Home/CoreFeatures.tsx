@@ -6,9 +6,9 @@ export default function CoreFeatures({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="py-12 bg-white dark:bg-black/80 transition-colors duration-300"
+      className="py-12 bg-white dark:bg-black transition-colors duration-300 "
     >
-      <div className="max-w-6xl mx-auto px-4 flex flex-col gap-8">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col gap-8  ">
         <div className="flex flex-col md:flex-row gap-8 w-full">
           {/* Top Left: More height, less width */}
           <div className="flex-1 max-w-[380px]">
