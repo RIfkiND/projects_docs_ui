@@ -6,9 +6,18 @@ export default function CoreFeatures({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="py-12 bg-white dark:bg-black transition-colors duration-300 "
+      className="py-20 bg-white dark:bg-black transition-colors duration-300 "
     >
-      <div className="max-w-6xl mx-auto px-4 flex flex-col gap-8  ">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col gap-8">
+        {/* Gradient Heading */}
+        <div className="w-full text-center mb-4">
+          <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-yellow-400 bg-clip-text text-transparent leading-tight">
+            Core Features for Modern Development Teams and Projects
+          </h2>
+          <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+            Everything you need to build, customize, and launch quickly.
+          </p>
+        </div>
         <div className="flex flex-col md:flex-row gap-8 w-full">
           {/* Top Left: More height, less width */}
           <div className="flex-1 max-w-[380px]">

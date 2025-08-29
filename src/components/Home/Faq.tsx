@@ -39,7 +39,7 @@ export default function Faq({ id }: { id?: string }) {
       id={id}
       className="py-12 bg-white dark:bg-black transition-colors duration-300"
     >
-      <div className="max-w-2xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-8 text-center text-black dark:text-white">
           Frequently Asked Questions
         </h2>
@@ -55,3 +55,4 @@ export default function Faq({ id }: { id?: string }) {
     </section>
   );
 }
+  
