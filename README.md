@@ -1,4 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚✨ projects_docs_ui
+
+A sleek, modern documentation UI built with **Next.js ⚡**.  
+Perfect for showcasing project documentation in style! 🎨  
+
+Responsive, fast, and easy to customize 🔧 — designed for developers who want a smooth, developer-friendly docs experience.
+
+---
+
+## 🚀 Features
+
+- ⚡ **Next.js Powered** – Blazing fast performance & SEO-friendly  
+- 🎨 **Modern UI** – Clean, minimal, and beautiful design  
+- 📱 **Responsive** – Looks great on desktop, tablet, and mobile  
+- 🧩 **Customizable** – Add sections, pages, and highlight features with ease  
+- 🛠 **Developer Friendly** – Built with maintainability and scalability in mind  
+
 
 ## Getting Started
 
